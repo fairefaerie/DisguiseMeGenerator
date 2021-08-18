@@ -1,0 +1,1760 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Disguise Self Generation Stable v1.0.04 by Jentastic -->
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+   
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.shopify.com/s/files/1/1064/0402/files/styles.css?v=1628119830">
+    <style>
+        body {
+            margin: 20px;
+            background: url("https://cdn.shopify.com/s/files/1/1064/0402/files/parchment-background.jpg?v=1627949223") fixed;
+            background-size: 216px;
+            font-family: 'Uncial Antiqua', cursive;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #616161;
+            text-align: center;
+        }
+        #DisguiseSelfOptions, #results {
+            font-family: 'MedievalSharp', cursive;
+        }
+        .form-container {
+            padding-top: 10px;
+            margin:auto
+        }
+        .height-weight {
+            width: 50%;
+        }
+        .race-selection {
+            width: 75%;
+        }
+        .race-form {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #616161
+        }
+        .form-check-input, .form-check-label {
+            margin-top: 5px;
+        }
+        .disclaimer {
+            padding: 10px;
+            border: 1px solid black;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.5)
+        }
+        .inactive {
+            color: #7E7E7E;
+        }
+        #ExcludeDrow, #ExcludeHalfDrow {
+            margin-left: 10px;
+        }
+        #results {
+            display: none;
+            margin-top: 20px;
+            width: 50%;
+            margin: auto;
+            font-size: 1.5em;
+        }
+        .btn, .btn:hover, .btn:active, .btn:focus {
+            background-color: #E30713;
+            border-color: #E30713;
+        }
+        #DisguiseMe {
+            width: auto;
+            margin: auto;
+        }
+        .form-check-input:checked {
+            background-color: #E30713;
+        }
+
+        /* Table */
+
+        .disguise-table {
+            margin: auto;
+        }
+
+        .disguise-table, .disguise-table tr, .disguise-table td {
+            border: 1px solid #7e7e7e
+        }
+
+        .disguise-table td {
+            padding: 7px;
+            color: #616161;
+        }
+
+        .disguise-table th {
+            padding: 7px;
+            color: black;
+        }
+
+        #FurRow, #TattooRow, #ScarRow {
+            display: none;
+        }
+
+        /* Exclusion buttons */
+
+        #exclusionButtons {
+            margin-top: 50px;
+        }
+        #WingsRow {
+            display: none;
+        }
+
+        #SpecificRow{
+            margin-top: 20px;
+        }
+
+        /* Temporary */
+
+        .race-selection {
+            display: none;
+        }
+
+        /* Range */
+        input[type=range] {
+            width: 100%;
+            margin: 3px 0;
+            background-color: transparent;
+            -webkit-appearance: none;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            background: #e30713;
+            border: 0.2px solid #e30713;
+            border-radius: 1.3px;
+            width: 100%;
+            height: 30px;
+            cursor: pointer;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            margin-top: -3.2px;
+            width: 16px;
+            height: 36px;
+            background: #e7e7e7;
+            border: 1px solid #414141;
+            border-radius: 3px;
+            cursor: pointer;
+            -webkit-appearance: none;
+        }
+        input[type=range]:focus::-webkit-slider-runnable-track {
+            background: #f80c19;
+        }
+        input[type=range]::-moz-range-track {
+            background: #e30713;
+            border: 0.2px solid #e30713;
+            border-radius: 1.3px;
+            width: 100%;
+            height: 30px;
+            cursor: pointer;
+        }
+        input[type=range]::-moz-range-thumb {
+            width: 16px;
+            height: 36px;
+            background: #e7e7e7;
+            border: 1px solid #414141;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        input[type=range]::-ms-track {
+            background: transparent;
+            border-color: transparent;
+            border-width: 4px 0;
+            color: transparent;
+            width: 100%;
+            height: 30px;
+            cursor: pointer;
+        }
+        input[type=range]::-ms-fill-lower {
+            background: #ca0611;
+            border: 0.2px solid #e30713;
+            border-radius: 2.6px;
+        }
+        input[type=range]::-ms-fill-upper {
+            background: #e30713;
+            border: 0.2px solid #e30713;
+            border-radius: 2.6px;
+        }
+        input[type=range]::-ms-thumb {
+            width: 16px;
+            height: 36px;
+            background: #e7e7e7;
+            border: 1px solid #414141;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 0px;
+        /* Needed to keep the Edge thumb centred */
+        }
+        input[type=range]:focus::-ms-fill-lower {
+            background: #e30713;
+        }
+        input[type=range]:focus::-ms-fill-upper {
+            background: #f80c19;
+        }
+        /* TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+        how to remove the virtical space around the range input in IE */
+        @supports (-ms-ime-align:auto) {
+            /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+            input[type=range] {
+                margin: 0;
+                /* Edge starts the margin from the thumb, not the track as other browsers do */
+            }
+        }
+    </style>
+
+    <title>Disguise Self Generator</title>
+  </head>
+  <body>
+    <div class="container options">
+        <h1 class="page-header">Your Disguise Self options</h1>
+        <hr>
+        <form id="DisguiseSelfOptions" method="POST">
+            <div class="submit-container form-container">
+                <div class="row">
+                    <button class="btn btn-primary" type="button" id="DisguiseMe">Disguise Me</button>
+                </div>
+            </div>
+            <div class="row height-weight form-container">
+                <h4>What is your character's height?</h4>
+                <div class="col range">
+                    <input class="form-range" type="range" id="HeightFeet" name="HeightFeet" 
+                            min="2" max="8" value="5" step="1">
+                    <label for="HeightFeet" id="FeetOutput"></label>&rsquo;
+                </div>
+                <div class="col range">
+                    <input class="form-range" type="range" id="HeightInches" name="HeightInches" 
+                            min="0" max="11" value="5" step="1">
+                    <label for="HeightInches" id="InchesOutput"></label>&rdquo;
+                </div>
+            </div>
+            <hr>
+            <div class="container text-center">
+                <h4>What races do you want to choose from?</h4>
+            </div>
+            <div class="container" id="exclusionButtons">
+                <div class="row">
+                    <div class="col">
+                        &nbsp;
+                    </div>
+                    <div class="col text-center">
+                        <button class="btn btn-primary" type="button" id="ExcludeTails">Exclude races with tails</button>
+                    </div>
+                    <div class="col text-center">
+                        <button class="btn btn-primary" type="button" id="ExcludeWings">Exclude races with wings</button>
+                    </div>
+                    <div class="col">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row" id="SpecificRow">
+                    <div class="col">
+                        &nbsp;
+                    </div>
+                    <div class="col text-center">
+                        <button class="btn btn-primary" type="button" id="SpecificExclusions">Manually choose races</button>
+                    </div>
+                    <div class="col">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="race-selection form-container">
+                <div class="row">
+                    <div class="col text-center">
+                        <button class="btn btn-primary" type="button" id="SelectAll">Select all races</button>
+                    </div>
+                    <div class="col text-center">
+                        <button class="btn btn-primary" type="button" id="BroadExclusions">Broader exclusion options</button>
+                    </div>
+                </div>
+                <div class="row race-form">
+                    <div class="col-sm-3 form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Aarokocra">
+                        <label class="form-check-label" for="Aarokocra">
+                            Aarokocra
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Aasimar">
+                        <label class="form-check-label" for="Aasimar">
+                            Aasimar
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Bugbear">
+                        <label class="form-check-label" for="Bugbear">
+                            Bugbear
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Dragonborn">
+                        <label class="form-check-label" for="Dragonborn">
+                            Dragonborn
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Dwarf">
+                        <label class="form-check-label" for="Dwarf">
+                            Dwarf
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Elf">
+                        <label class="form-check-label" for="Elf">
+                            Elf
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="ExcludeDrow">
+                        <label class="form-check-label" for="ExcludeDrow">
+                            Exclude Drow
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Firbolg">
+                        <label class="form-check-label" for="Firbolg">
+                            Firbolg
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Genasi">
+                        <label class="form-check-label" for="Genasi">
+                            Genasi
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Gith">
+                        <label class="form-check-label" for="Gith">
+                            Gith
+                        </label><br>
+                    </div>
+                    <div class="col-sm-3 form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Gnome">
+                        <label class="form-check-label" for="Gnome">
+                            Gnome
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Goblin">
+                        <label class="form-check-label" for="Goblin">
+                            Goblin
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Goliath">
+                        <label class="form-check-label" for="Goliath">
+                            Goliath
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Grung">
+                        <label class="form-check-label" for="Grung">
+                            Grung
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="HalfElf">
+                        <label class="form-check-label" for="HalfElf">
+                            Half-Elf
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="ExcludeHalfDrow">
+                        <label class="form-check-label" for="ExcludeHalfDrow">
+                            Exclude Half-Drow
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="HalfOrc">
+                        <label class="form-check-label" for="HalfOrc">
+                            Half-Orc
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Halfling">
+                        <label class="form-check-label" for="Halfling">
+                            Halfling
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Hobgoblin">
+                        <label class="form-check-label" for="Hobgoblin">
+                            Hobgoblin
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Human">
+                        <label class="form-check-label" for="Human">
+                            Human
+                        </label><br>
+                    </div>
+                    <div class="col-sm-3 form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Kalashtar">
+                        <label class="form-check-label" for="Kalashtar">
+                            Kalashtar
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Kenku">
+                        <label class="form-check-label" for="Kenku">
+                            Kenku
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Kobold">
+                        <label class="form-check-label" for="Kobold">
+                            Kobold
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Leonin">
+                        <label class="form-check-label" for="Leonin">
+                            Leonin
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Lizardfolk">
+                        <label class="form-check-label" for="Lizardfolk">
+                            Lizardfolk
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Loxodon">
+                        <label class="form-check-label" for="Loxodon">
+                            Loxodon
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Minotaur">
+                        <label class="form-check-label" for="Minotaur">
+                            Minotaur
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Orc">
+                        <label class="form-check-label" for="Orc">
+                            Orc
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Owlfolk">
+                        <label class="form-check-label" for="Owlfolk">
+                            Owlfolk
+                        </label><br>
+                    </div>
+                    <div class="col-sm-3 form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="Rabbitfolk">
+                        <label class="form-check-label" for="Rabbitfolk">
+                            Rabbitfolk
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Satyr">
+                        <label class="form-check-label" for="Satyr">
+                            Satyr/Faun
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="SimicHybrid">
+                        <label class="form-check-label" for="SimicHybrid">
+                            Simic Hybrid
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Tabaxi">
+                        <label class="form-check-label" for="Tabaxi">
+                            Tabaxi
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Tiefling">
+                        <label class="form-check-label" for="Tiefling">
+                            Tiefling
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Tortle">
+                        <label class="form-check-label" for="Tortle">
+                            Tortle
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Triton">
+                        <label class="form-check-label" for="Triton">
+                            Triton
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Vedalken">
+                        <label class="form-check-label" for="Vedalken">
+                            Vedalken
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Verdan">
+                        <label class="form-check-label" for="Verdan">
+                            Verdan
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Warforged">
+                        <label class="form-check-label" for="Warforged">
+                            Warforged
+                        </label><br>
+                        <input class="form-check-input" type="checkbox" value="" id="Yuanti">
+                        <label class="form-check-label" for="Yuanti">
+                            Yuan-ti Pureblood
+                        </label><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container" id="results">
+        <div class="reset-container form-container">
+            <div class="row">
+                <div class="col">
+                    &nbsp;
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" type="button" id="ResetOption">Reset</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary" type="submit" id="NewLook">New Look</button>
+                </div>
+                <div class="col">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+        <h1 class="page-header">You are disguised as:</h1>
+        <div class="container disguise-readout">
+            <table class="disguise-table">
+                <tbody>
+                    <tr>
+                        <th>Race: </th>
+                        <td id="RaceOutput"></td>
+                    </tr>
+                    <tr>
+                        <th>Gender: </th>
+                        <td id="GenderOutput"></td>
+                    </tr>
+                    <tr>
+                        <th>Age: </th>
+                        <td id="AgeOutput"></td>
+                    </tr>
+                    <tr>
+                        <th>Height: </td>
+                        <td id="HeightOutput"></td>
+                    </tr>
+                    <tr id="HairRow">
+                        <th id="HairLabel">&nbsp;</th>
+                        <td id="HairOutput"></td>
+                    </tr>
+                    <tr id="SkinRow">
+                        <th id="SkinLabel">&nbsp;</th>
+                        <td id="SkinOutput"></td>
+                    </tr>
+                    <tr id="FurRow">
+                        <th id="FurLabel">&nbsp;</th>
+                        <td id="FurOutput"></td>
+                    </tr>
+                    <tr id="WingsRow">
+                        <th>Wings: </th>
+                        <td id="WingsOutput"></td>
+                    </tr>
+                    <tr id="HornsRow">
+                        <th>Horns: </th>
+                        <td id="HornsOutput"></td>
+                    </tr>
+                    <tr id="ScarRow">
+                        <th>Scar: </th>
+                        <td id="ScarOutput"></td>
+                    </tr>
+                    <tr id="TattooRow">
+                        <th>Tattoo: </th>
+                        <td id="TattooOutput">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+        // Slider
+
+            var feetslider = document.getElementById("HeightFeet");
+            var feetoutput = document.getElementById("FeetOutput");
+            feetoutput.innerHTML = feetslider.value; // Display the default slider value
+
+                // Update the current slider value (each time you drag the slider handle)
+                feetslider.oninput = function() {
+                    feetoutput.innerHTML = this.value;
+                }
+
+            var inchesslider = document.getElementById("HeightInches");
+            var inchesoutput = document.getElementById("InchesOutput");
+            inchesoutput.innerHTML = inchesslider.value; // Display the default slider value
+
+                // Update the current slider value (each time you drag the slider handle)
+                inchesslider.oninput = function() {
+                    inchesoutput.innerHTML = this.value;
+                }
+
+        // Select All
+
+            $( "#SelectAll" ).click(function() {
+                var inputs = document.getElementsByTagName("input");
+                    for(var i = 0; i < inputs.length; i++) {
+                        if(inputs[i].checked == false) {
+                            inputs[i].checked = true; 
+                            document.getElementById ("SelectAll").innerHTML = "Deselect all races";
+                        } else if(inputs[i].checked == true) {
+                            inputs[i].checked = false;
+                            document.getElementById ("SelectAll").innerHTML = "Select all races";
+                        }
+                };
+                var ExcludeHD = document.getElementById ("ExcludeHalfDrow");
+                    if(ExcludeHD.checked == true) {
+                        ExcludeHD.checked = false;
+                };
+                var ExcludeD = document.getElementById ("ExcludeDrow");
+                    if(ExcludeD.checked == true) {
+                        ExcludeD.checked = false;
+                };
+            });
+
+         $(document).ready(function(){
+
+            // Races
+
+                const AllRaces = [];
+                var NewRace;
+
+            // Race Exclusions
+
+                const Elves = [];
+                const HalfElves = [];
+                const Orcs = [];
+                const Genasi = ['Fire Genasi', 'Water Genasi', 'Air Genasi', 'Earth Genasi'];
+                var Wings = true;
+                var Tails = true;
+                var ManualSelection = false;
+
+            // Genders
+
+                const Genders = ['Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Indeterminiate'];
+
+            // Ages
+
+                const Ages = ['Young', 'Teen', 'Adult', 'Middle-Aged', 'Teen', 'Adult', 'Middle-Aged', 'Teen', 'Adult', 'Middle-Aged', 'Old', 'Elderly'];
+
+            // Exclude Wings and Tails
+
+            function toggle(x){
+                return !x
+            }
+
+            function NoWings(){
+                Wings = toggle(Wings);
+                if(Wings == true){
+                    $("#ExcludeWings").html('Exclude races with wings');
+                } else {
+                    $("#ExcludeWings").html('Include races with wings');
+                }
+            }
+
+            function NoTails(){
+                Tails = toggle(Tails);
+                if(Tails == true){
+                    $("#ExcludeTails").html('Exclude races with tails');
+                } else {
+                    $("#ExcludeTails").html('Include races with tails');
+                }
+            }
+
+            $("#ExcludeWings").click(NoWings);
+            $("#ExcludeTails").click(NoTails);
+
+            // Manual Race Selection
+
+            function ManualRaces(){
+                var inputs = document.getElementsByTagName("input");
+                for(var i = 0; i < inputs.length; i++) {
+                    if(inputs[i].checked == true) {
+                        var NewRace = document.getElementById.value;
+                        if(NewRace == 'Elf'){
+                            AllRaces.push('AnyElf');
+                            Elves.push('Wood Elf', 'High Elf', 'Wood Elf', 'High Elf', 'Wood Elf', 'High Elf', 'Pallid Elf', 'Sea Elf', 'Shadar-kai Elf', 'Eladrin');
+                        } else if(NewRace == 'Half Elf'){
+                            AllRaces.push('Half Wood Elf', 'Half High Elf', 'Half Wood Elf', 'Half High Elf', 'Half Wood Elf', 'Half High Elf', 'Half Pallid Elf', 'Half Sea Elf', 'Half Shadar-kai Elf', 'Half Eladrin');
+                        } else if(NewRace == 'Orc'){
+                            AllRaces.push('Orc', 'Eberron Orc');
+                        } else {
+                            AllRaces.push(NewRace);
+                        }
+                    } else if(inputs[i].checked == false) {
+                        var NewRace = document.getElementById.value;
+                        if(NewRace == 'ExcludeDrow'){
+                            AllRaces.push('Drow');
+                            Elves.push('Drow');
+                        } else if(NewRace == 'ExcludeHalfDrow'){
+                            AllRaces.push('Half Drow');
+                            Elves.push('Half Drow');
+                    }
+                };
+            }
+        }
+
+            function DisguiseMe(){
+            // Create Race Array
+                
+                // const AllRaces = ["Aarokocra", "Aasimar", "Bugbear", "Dragonborn", "Dwarf", "Elf", "Firbolg", "Genasi", "Gith", "Gnome", "Goblin", "Goliath", "Grung", "HalfElf", "HalfOrc", "Halfling", "Hobgoblin", "Human", "Kalashtar", "Kenku", "Kobold", "Leonin", "Lizardfolk", "Loxodon", "Minotaur", "Orc", "Owlfolk", "Rabbitfolk", "Satyr", "SimicHybrid", "Tabaxi", "Tiefling", "Tortle", "Triton", "Vedalken", "Verdan", "Warforged", "Yuan-ti"];
+
+            // Calculate Height
+                var FeetInches = document.getElementById("HeightFeet").value;
+                var FeetInches = FeetInches * 12;
+                var Inches = document.getElementById("HeightInches").value;
+                var HeightInches = parseFloat(FeetInches) + parseFloat(Inches);
+
+            // Calculate min-max height
+
+                var MinHeight = parseFloat(HeightInches) - 12;
+                var MaxHeight = parseFloat(HeightInches) + 12;
+
+            // Build heights of races, Exclude min/max height
+                
+                // Aarokocra
+
+                var AarokocraMin = 48;
+                var AarokocraMax = 60;
+                if(Wings == true){
+                    if(MaxHeight <= AarokocraMin || MinHeight >= AarokocraMax){
+                        var ExcludeAarokocra = true;
+                    } else {
+                        var ExcludeAarokocra = false;
+                        AllRaces.push("Aarokocra");
+                    }
+                }
+
+                // Aasimar
+                var AasimarMin = 60;
+                var AasimarMax = 78;
+                if(MaxHeight <= AasimarMin || MinHeight >= AasimarMax){
+                    var ExcludeAasimar = true;
+                } else {
+                    var ExcludeAasimar = false;
+                    AllRaces.push('Aasimar');
+                }
+
+                // Bugbear
+                var BugbearMin = 72;
+                var BugbearMax = 96;
+                if(MaxHeight <= BugbearMin || MinHeight >= BugbearMax){
+                    var ExcludeBugbear = true;
+                } else {
+                    var ExcludeBugbear = false;
+                    AllRaces.push('Bugbear');
+                }
+
+                // Dragonborn
+                var DragonbornMin = 72;
+                var DragonbornMax = 84;
+                if(MaxHeight <= DragonbornMin || MinHeight >= DragonbornMax){
+                    var ExcludeDragonborn = true;
+                } else {
+                    var ExcludeDragonborn = true;
+                    AllRaces.push('Dragonborn');
+                }
+
+                // Dwarf
+                var DwarfMin = 46;
+                var DwarfMax = 56;
+                if(MaxHeight <= DwarfMin || MinHeight >= DwarfMax){
+                    var ExcludeDwarf = true;
+                } else {
+                    var ExcludeDwarf = false;
+                    AllRaces.push('Dwarf');
+                }
+
+                // Elf
+                var ElfMin = 56;
+                var ElfMax = 74;
+                if(MaxHeight < ElfMin || MinHeight > ElfMax){
+                    var ExcludeElf = true;
+                } else {
+                    var ExcludeElf = false;
+                    Elves.push('Wood Elf', 'High Elf', 'Wood Elf', 'High Elf', 'Wood Elf', 'High Elf', 'Pallid Elf', 'Sea Elf', 'Shadar-kai Elf');
+                }
+
+                // Elf Subrace Eladrin
+
+                var EladrinMin = 65;
+                var EladrinMax = 73;
+                if(MaxHeight < EladrinMin || MinHeight > EladrinMax){
+                    var ExcludeEladrin = true;
+                } else {
+                    var ExcludeEladrin = false;
+                    Elves.push('Eladrin', 'Eladrin');
+                }
+
+                // Elf Subrace Drow
+
+                var DrowMin = 55;
+                var DrowMax = 65;
+                if(MaxHeight < DrowMin || MinHeight > DrowMax){
+                    var ExcludeDrow = true;
+                } else {
+                    var ExcludeDrow = false;
+                    Elves.push('Drow');
+                }
+
+                // Test for any elf
+
+                if(ExcludeElf == false && ExcludeEladrin == false && ExcludeDrow == false) {
+                    var AnyElf = true;
+                    AllRaces.push('Any Elf');
+                } else if(ExcludeElf == false || ExcludeEladrin == false || ExcludeDrow == false) {
+                    if(ExcludeElf == false) {
+                        AllRaces.push('Wood Elf', 'High Elf', 'Wood Elf', 'High Elf', 'Wood Elf', 'High Elf', 'Pallid Elf', 'Sea Elf', 'Shadar-kai Elf');
+                    }
+                    if(ExcludeDrow == false) {
+                        AllRaces.push('Drow');
+                    }
+                    if(ExcludeEladrin == false) {
+                        AllRaces.push('Eladrin');
+                    }
+                } else {
+                    var AnyElf = false;
+                }
+
+                // Firbolg
+
+                var FirbolgMin = 84;
+                var FirbolgMax = 96;
+                if(MaxHeight < FirbolgMin || MinHeight > FirbolgMax){
+                    var ExcludeFirbolg = true;
+                } else {
+                    var ExcludeFirbolg = false;
+                    AllRaces.push('Firbolg');
+                }
+
+                // Genasi
+
+                var GenasiMin = 60;
+                var GenasiMax = 78;
+                if(MaxHeight < GenasiMin || MinHeight > GenasiMin){
+                    var ExcludeGenasi = true;
+                } else {
+                    var ExcludeGenasi = false;
+                    AllRaces.push('Genasi');
+                }
+
+                // Gith
+
+                var GithMin = 61;
+                var GithMax = 72;
+                if(MaxHeight < GithMin || MinHeight > GithMax){
+                    var ExcludeGith = true;
+                } else {
+                    var ExcludeGith = false;
+                    AllRaces.push('Gith');
+                }
+
+                // Gnome
+
+                var GnomeMin = 36;
+                var GnomeMax = 48;
+                if(MaxHeight < GnomeMin || MinHeight > GnomeMax){
+                    var ExcludeGnome = true;
+                } else {
+                    var ExcludeGnome = false;
+                    AllRaces.push('Gnome');
+                }
+
+                // Goblin
+
+                var GoblinMin = 36;
+                var GoblinMax = 48;
+                if(MaxHeight < GoblinMin || MinHeight > GoblinMax){
+                    var ExcludeGoblin = true;
+                } else {
+                    var ExcludeGoblin = false;
+                    AllRaces.push('Goblin');
+                }
+
+                // Goliath
+
+                var GoliathMin = 84;
+                var GoliathMax = 96;
+                if(MaxHeight < GoliathMin || MinHeight > GoliathMax){
+                    var ExcludeGoliath = true;
+                } else {
+                    var ExcludeGoliath = false;
+                    AllRaces.push('Goliath');
+                }
+
+                // Half Elf
+
+                var HalfElfMin = 55;
+                var HalfElfMax = 75;
+                if(MaxHeight < HalfElfMin || MinHeight > HalfElfMax){
+                    var ExcludeHalfElf = true;
+                } else {
+                    var ExcludeHalfElf = false;
+                    HalfElves.push('Half Wood Elf', 'Half High Elf', 'Half Wood Elf', 'Half High Elf', 'Half Wood Elf', 'Half High Elf', 'Half Pallid Elf', 'Half Sea Elf', 'Half Shadar-kai Elf');
+                }
+
+                // Variant Half Drow
+
+                var HalfDrowMin = 54;
+                var HalfDrowMax = 66;
+                if(MaxHeight < HalfDrowMin || MinHeight > HalfDrowMax){
+                    var ExcludeHalfDrow = true;
+                } else {
+                    var ExcludeHalfDrow = false;
+                    HalfElves.push('Half Drow');
+                }
+
+                // Variant Half Eladrin
+
+                var HalfEladrinMin = 64;
+                var HalfEladrinMax = 75;
+                if(MaxHeight < HalfEladrinMin || MinHeight > HalfEladrinMax){
+                    var ExcludeHalfEladrin = true;
+                } else {
+                    var ExcludeHalfEladrin = false;
+                    HalfElves.push('Half Eladrin', 'Half Eladrin')
+                }
+
+                // Test for any Half-Elf
+
+                if(ExcludeHalfElf == false && ExcludeHalfEladrin == false && ExcludeHalfDrow == false) {
+                    var AnyHalfElf = true;
+                    AllRaces.push('Half Wood Elf', 'Half High Elf', 'Half Wood Elf', 'Half High Elf', 'Half Wood Elf', 'Half High Elf', 'Half Pallid Elf', 'Half Sea Elf', 'Half Shadar-kai Elf');
+                } else if(ExcludeHalfElf == false || ExcludeHalfEladrin == false || ExcludeHalfDrow == false) {
+                    if(ExcludeHalfElf == false) {
+                        AllRaces.push('Half Wood Elf', 'Half High Elf', 'Half Wood Elf', 'Half High Elf', 'Half Wood Elf', 'Half High Elf', 'Half Pallid Elf', 'Half Sea Elf', 'Half Shadar-kai Elf');
+                    }
+                    if(ExcludeHalfDrow == false) {
+                        AllRaces.push('Half Drow');
+                    }
+                    if(ExcludeHalfEladrin == false) {
+                        AllRaces.push('Half Eladrin, Half Eladrin');
+                    }
+                } else {
+                    var AnyHalfElf = false;
+                }
+
+                // Half Orc
+
+                var HalfOrcMin = 60;
+                var HalfOrcMax = 78;
+                if(MaxHeight < HalfOrcMin || MinHeight > HalfOrcMax){
+                    var ExcludeHalfOrc = true;
+                } else {
+                    var ExcludeHalfOrc = false;
+                    AllRaces.push('Half Orc');
+                }
+
+                // Halfing
+
+                var HalfingMin = 33;
+                var HalfingMax = 39;
+                if(MaxHeight < HalfingMin || MinHeight > HalfingMax){
+                    var ExcludeHalfing = true;
+                } else {
+                    var ExcludeHalfing = false;
+                    AllRaces.push('Halfling');
+                }
+
+                // Hobgoblin
+
+                var HobgoblinMin = 48;
+                var HobgoblinMax = 64;
+                if(MaxHeight < HobgoblinMin || MinHeight > HobgoblinMax){
+                    var ExcludeHobgoblin = true;
+                } else {
+                    var ExcludeHobgoblin = false;
+                    AllRaces.push('Hobgoblin');
+                }
+
+                // Human
+
+                var HumanMin = 58;
+                var HumanMax = 72;
+                if(MaxHeight < HumanMin || MinHeight > HumanMax){
+                    var ExcludeHuman = true;
+                } else {
+                    var ExcludeHuman = false;
+                    AllRaces.push('Human');
+                }
+
+                // Kalashtar
+
+                var KalashtarMin = 62;
+                var KalashtarMax = 78;
+                if(MaxHeight < KalashtarMin || MinHeight > KalashtarMax){
+                    var ExcludeKalashtar = true;
+                } else {
+                    var ExcludeKalashtar = false;
+                    AllRaces.push('Kalashtar');
+                }
+
+                // Kenku
+
+                var KenkuMin = 53;
+                var KenkuMax = 71;
+                if(Wings == true){
+                    if(MaxHeight < KenkuMin || MinHeight > KenkuMax){
+                        var ExcludeKenku = true;
+                    } else {
+                        var ExcludeKenku = false;
+                        AllRaces.push('Kenku');
+                    }
+                }
+
+                // Kobold
+
+                var KoboldMin = 84;
+                var KoboldMax = 96;
+                if(Tails == true){
+                    if(MaxHeight < KoboldMin || MinHeight > KoboldMax){
+                        var ExcludeKobold = true;
+                    } else {
+                        var ExcludeKobold = false;
+                        AllRaces.push('Kobold');
+                    }
+                }
+
+                // Leonin
+
+                var LeoninMin = 71;
+                var LeoninMax = 85;
+                if(Tails == true){
+                    if(MaxHeight < LeoninMin || MinHeight > LeoninMax){
+                        var ExcludeLeonin = true;
+                    } else {
+                        var ExcludeLeonin = false;
+                        AllRaces.push('Leonin');
+                    }
+                }
+
+                // Lizardfolk
+
+                var LizardfolkMin = 57;
+                var LizardfolkMax = 79;
+                if(Tails == true){
+                    if(MaxHeight < LizardfolkMin || MinHeight > LizardfolkMax){
+                        var ExcludeLizardfolk = true;
+                    } else {
+                        var ExcludeLizardfolk = false;
+                        AllRaces.push('Lizardfolk');
+                    }
+                }
+
+                // Minotaur
+
+                var MinotaurMin = 68;
+                var MinotaurMax = 78;
+                if(Tails == true){
+                    if(MaxHeight < MinotaurMin || MinHeight > MinotaurMax){
+                        var ExcludeMinotaur = true;
+                    } else {
+                        var ExcludeMinotaur = false;
+                        AllRaces.push('Minotaur')
+                    }
+                }
+
+                // Orc
+
+                var OrcMin = 67;
+                var OrcMax = 77;
+                if(MaxHeight < OrcMin || MinHeight > OrcMax){
+                    var ExcludeOrc = true;
+                } else {
+                    var ExcludeOrc = false;
+                    Orcs.push('Orc');
+                }
+
+                // Variant Eberron Orc
+
+                var EberronOrcMin = 63;
+                var EberronOrcMax = 81;
+                if(MaxHeight < EberronOrcMin || MinHeight > EberronOrcMax){
+                    var ExcludeEberronOrc = true;
+                } else {
+                    var ExcludeEberronOrc = false;
+                    Orcs.push('Eberron Orc');
+                }
+
+                // Test for any Orc
+
+                if(ExcludeOrc == false && ExcludeEberronOrc == false) {
+                    var AnyOrc = true;
+                    AllRaces.push('Any Orc');
+                } else if(ExcludeHalfElf == false || ExcludeHalfEladrin == false || ExcludeHalfDrow == false) {
+                    if(ExcludeOrc == false) {
+                        AllRaces.push('Orc');
+                    }
+                    if(ExcludeEberronOrc == false) {
+                        AllRaces.push('Eberron Orc');
+                    }
+                } else {
+                    var AnyOrc = false;
+                }
+
+                // Owlfolk
+
+                var OwlfolkMin = 72;
+                var OwlfolkMax = 96;
+                if(Wings == true){
+                    if(MaxHeight < OwlfolkMin || MinHeight > OwlfolkMax){
+                        var ExcludeOwlfolk = true;
+                    } else {
+                        var ExcludeOwlfolk = false;
+                        AllRaces.push('Owlfolk');
+                    }
+                }
+
+                // Rabbitfolk
+
+                var RabbitfolkMin = 46;
+                var RabbitfolkMax = 77;
+                if(Tails == true){
+                    if(MaxHeight < RabbitfolkMin || MinHeight > RabbitfolkMax){
+                        var ExcludeRabbitfolk = true;
+                    } else {
+                        var ExcludeRabbitfolk = false;
+                        AllRaces.push('Rabbitfolk');
+                    }
+                }
+
+                // Satyr
+
+                var SatyrMin = 60;
+                var SatyrMax = 72;
+                if(Tails == true){
+                    if(MaxHeight < SatyrMin || MinHeight > SatyrMax){
+                        var ExcludeSatyr = true;
+                    } else {
+                        var ExcludeSatyr = false;
+                        AllRaces.push('Satyr');
+                    }
+                }
+
+                // Simic Hybrid
+
+                var SimicHybridMin = 72;
+                var SimicHybridMax = 96;
+                if(MaxHeight < SimicHybridMin || MinHeight > SimicHybridMax){
+                    var ExcludeSimicHybrid = true;
+                } else {
+                    var ExcludeSimicHybrid = false;
+                    AllRaces.push('Simic Hybrid');
+                }
+
+                // Tabaxi
+
+                var TabaxiMin = 61;
+                var TabaxiMax = 75;
+                if(Tails == true){
+                    if(MaxHeight < TabaxiMin || MinHeight > TabaxiMax){
+                        var ExcludeTabaxi = true;
+                    } else {
+                        var ExcludeTabaxi = false;
+                        AllRaces.push('Tabaxi');
+                    }
+                }
+
+                // Tiefling
+
+                var TieflingMin = 57;
+                var TieflingMax = 79;
+                if(Tails == true){
+                    if(MaxHeight < TieflingMin || MinHeight > TieflingMax){
+                        var ExcludeTiefling = true;
+                    } else {
+                        var ExcludeTiefling = false;
+                        AllRaces.push('Tiefling');
+                    }
+                }
+
+                // Tortle
+
+                var TortleMin = 60;
+                var TortleMax = 72;
+                if(MaxHeight < TortleMin || MinHeight > TortleMax){
+                    var ExcludeTortle = true;
+                } else {
+                    var ExcludeTortle = false;
+                    AllRaces.push('Tortle');
+                }
+
+                // Triton
+
+                var TritonMin = 58;
+                var TritonMax = 72;
+                if(MaxHeight < TritonMin || MinHeight > TritonMax){
+                    var ExcludeTriton = true;
+                } else {
+                    var ExcludeTriton = false;
+                    AllRaces.push('Triton');
+                }
+
+                // Vedalken
+
+                var VedalkenMin = 64;
+                var VedalkenMax = 86;
+                if(MaxHeight < VedalkenMin || MinHeight > VedalkenMax){
+                    var ExcludeVedalken = true;
+                } else {
+                    var ExcludeVedalken = false;
+                    AllRaces.push('Vedalken');
+                }
+
+                // Verdan
+
+                var VerdanMin = 73;
+                var VerdanMax = 79;
+                if(MaxHeight < VerdanMin || MinHeight > VerdanMax){
+                    var ExcludeVerdan = true;
+                } else {
+                    var ExcludeVerdan = false;
+                    AllRaces.push('Verdan');
+                }
+
+                // Yuan-ti Pureblood
+
+                var YuantiMin = 60;
+                var YuantiMax = 74;
+                if(MaxHeight < YuantiMin || MinHeight > YuantiMax){
+                    var ExcludeYuanti = true;
+                } else {
+                    var ExcludeYuanti = false;
+                    AllRaces.push('Yuan-ti Pureblood');
+                }
+
+            // Click button, start random   
+
+
+                    // Show Results
+
+                    document.getElementById('results').style.display = "block";
+                    document.getElementById('DisguiseSelfOptions').style.display = "none";
+
+                    // Generate Random
+
+                    var race = AllRaces[Math.floor(Math.random()*AllRaces.length)];
+                    if(race == 'Any Elf') {
+                        var AnyElf = true;
+                        var race = Elves[Math.floor(Math.random()*Elves.length)];
+                    } else if(race == 'Any Half Elf') {
+                        var HalfElf = true;
+                        var race = HalfElves[Math.floor(Math.random()*HalfElves.length)];
+                    } else if(race == 'Any Orc') {
+                        var AnyOrc = true;
+                        var race = Orcs[Math.floor(Math.random()*Orcs.length)];
+                    }else if(race == 'Genasi') {
+                        var AnyOrc = true;
+                        var race = Genasi[Math.floor(Math.random()*Genasi.length)];
+                    };
+                    var gender = Genders[Math.floor(Math.random()*Genders.length)];
+                    var age = Ages[Math.floor(Math.random()*Ages.length)];
+
+                    // Variable choices
+
+                    if(race == 'Lionin'){
+                        if(gender != 'Female');
+                        $('#HairLabel').html('Mane: ')
+                    } else if(race == 'Lizardfolk'){
+                        $('#HairLabel').html('Dorsal Ridge: ')
+                    } else if(race == 'Tortle'){
+                        $('#HairLabel').html('Shell: ')
+                    } else {
+                        $('#HairLabel').html('Hair: ')
+                    }
+
+                    if(race == 'Dragonborn' || race == 'Aarakocra' || race == 'Bugbear' || race == 'Kenku' || race == 'Kobold' || race == 'Tabaxi' || race == 'Owlfolk' || race == 'Rabbitfolk'){
+                        $('#HairRow').hide();
+                    } else if(race == 'Lionin' && gender != 'Male'){
+                        if(gender != 'Female'){
+                            var coin = Math.floor((Math.random() * 2) + 1);
+                            if(coin == 1){
+                                $('#HairRow').hide();
+                            } else {
+                                $('#HairRow').show();
+                            }
+                        } else {
+                            $('#HairRow').hide();
+                        }
+                    } else {
+                        $('#HairRow').show();
+                    }
+
+                    if(race == 'Satyr' || race == 'Leonin' || race == 'Bugbear' || race == 'Aarakocra' || race == 'Kenku' || race == 'Rabbitfolk' || race == 'Owlfolk' || race == 'Tabaxi'){
+                        $('#FurRow').show();
+                        if(race == 'Satyr' || race == 'Leonin' || race == 'Bugbear' || race == 'Tabaxi' || race == 'Rabbitfolk' ){
+                            $('#FurLabel').html('Fur Color: ')
+                        } else if(race == 'Aarakocra' || race == 'Kenku' || race == 'Owlfolk'){
+                            $('#FurLabel').html('Feathers: ')
+                        }
+                    } else {
+                        $('#FurRow').hide();
+                    }
+
+                    if(race == 'Leonin' || race == 'Aarakocra' || race == 'Bugbear' || race == 'Kenku' || race == 'Tabaxi' || race == 'Rabbitfolk'){
+                        $('#SkinRow').hide();
+                    } else if(race == 'Dragonborn' || race == 'Lizardfolk' || race == 'Kobold') {
+                        $('#SkinRow').show();
+                        $('#SkinLabel').html('Scales: ');
+                    } else if(race == 'Warforged') {
+                        $('#SkinRow').show();
+                        $('#SkinLabel').html('Plating: ');
+                    } else {
+                        $('#SkinRow').show();
+                        $('#SkinLabel').html('Skin color: ');
+                    }
+
+                    if(race == 'Satyr' || race == 'Tiefling'){
+                        $('#HornsRow').show();
+                    } else {
+                        $('#HornsRow').hide();
+                    }
+
+                    // Hair General
+
+                    const HairGeneral = []
+
+                    
+                    if(race == 'Drow' || race == 'Half Drow'){
+                        HairGeneral.push('White', 'Silver', 'Pale Yellow', 'Black');
+                    } else if(race == 'Wood Elf' || race == 'Half Wood Elf'){
+                        HairGeneral.push('Golden Brown', 'Caramel', 'Cocoa', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Chestnut', 'Black');
+                    } else if(race == 'High Elf' || race == 'Half High Elf'){
+                        HairGeneral.push('White', 'Silver', 'Golden Blonde');
+                    } else if(race == 'Pallid Elf' || race == 'Half Pallid Elf'){
+                        HairGeneral.push('White', 'Silver', 'Pale Yellow');
+                    } else if(race == 'Sea Elf'){
+                        HairGeneral.push('Seafoam Green', 'Black', 'Light Blue', 'Navy Blue', 'Cerulean', 'Bright Blue', 'Silver-White', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Teal', 'Turquoise', 'Kelly Green');
+                    } else if(race == 'Half Sea Elf'){
+                        HairGeneral.push('Light Blue', 'Navy Blue', 'Cerulean', 'Bright Blue', 'Silver-White', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Teal', 'Turquoise', 'Kelly Green', 'Platinum Blonde', 'Blonde', 'Dirty Blonde', 'Golden Brown', 'Caramel', 'Cocoa');
+                    } else if(race == 'Shadar-kai Elf' || race == 'Half Shadar-kai Elf'){
+                        HairGeneral.push('Black', 'Grey', 'Silver', 'White');
+                    }  else if(race == 'Half Shadar-kai Elf'){
+                        HairGeneral.push('Black', 'White', 'Bright Red', 'Golden Blonde');
+                    } else if(race == 'Halfling'){
+                        HairGeneral.push('Black', 'Golden Brown', 'Caramel', 'Cocoa', 'Chestnut', 'Grey', 'Silver', 'White', 'Dirty Blonde');
+                    } else if(race=='Orc' || race=='Eberron Orc' || race == 'Half Orc'){
+                        HairGeneral.push('Black', 'Grey');
+                    } else if(race == 'Tiefling'){
+                        HairGeneral.push('Golden Brown', 'Caramel', 'Cocoa', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Chestnut', 'Black', 'Navy Blue', 'Neon Purple', 'Plum');
+                    } else if(race == 'Leonin'){
+                        HairGeneral.push('Tawny', 'Golden', 'Tawny', 'Golden', 'Tawny', 'Golden', 'Black', 'Black', 'White', 'Dark Brown', 'Dark Brown');
+                    } else if(race == 'Satyr'){
+                        HairGeneral.push('Dirty Blonde', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Chestnut', 'Black', 'Golden Brown', 'Caramel', 'Cocoa');
+                    } else if(race == 'Air Genasi'){
+                        HairGeneral.push('Baby Blue', 'Cornflower Blue', 'Light Blue', 'Pale Turquoise', 'Sky Blue');
+                    } else if(race == 'Water Genasi'){
+                        HairGeneral.push('Bald', 'Bald', 'Bald', 'Bald', 'Bald', 'Light Blue', 'Pale Turquoise', 'Sky Blue', 'Baby Blue', 'Seafoam Green');
+                    } else if(race == 'Fire Genasi'){
+                        HairGeneral.push('Fire');
+                    } else if(race == 'Earth Genasi' || race == 'Vedalken'){
+                        HairGeneral.push('Bald');
+                    } else if(race == 'Goliath'){
+                        HairGeneral.push('Cocoa', 'Chestnut', 'Black');
+                    } else if(race == 'Aasimar'){
+                        HairGeneral.push('Platinum Blonde', 'Blonde', 'Dirty Blonde', 'Golden Brown', 'Caramel', 'Cocoa', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Chestnut', 'Black', 'Silver', 'White');
+                    } else if(race == 'Firbolg'){
+                        HairGeneral.push('Platinum Blonde', 'Blonde', 'Dirty Blonde', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn');
+                    } else if(race == 'Goblin'){
+                        HairGeneral.push('Cocoa', 'Chestnut', 'Black');
+                    } else if(race == 'Hobgoblin'){
+                        HairGeneral.push('Cocoa', 'Chestnut', 'Black', 'Auburn', 'Grey');
+                    } else if(race == 'Lizardfolk'){
+                        HairGeneral.push('Light Green', 'Dark Green', 'Bright Green', 'Black', 'Light Brown', 'Dark Brown', 'Yellow', 'Orange', 'Light Grey', 'Dark Grey');
+                    } else if(race == 'Triton'){
+                        HairGeneral.push('Light Green', 'Dark Green', 'Bright Green', 'Navy Blue', 'Light Blue', 'Pale Turquoise', 'Sky Blue', 'Baby Blue', 'Seafoam Green', 'Teal');
+                    } else if(race == 'Yuan-ti Pureblood'){
+                        HairGeneral.push('Black', 'Dark Green', 'Dark Blue');
+                    } else if(race == 'Gith'){
+                        HairGeneral.push('Black', 'Dark Grey', 'Light Grey', 'Scottish/Irish Red', 'Auburn', 'Chestnut');
+                    } else if(race == 'Verdan'){
+                        HairGeneral.push('Jade Green', 'Dark Green', 'Light Green', 'Kelly Green', 'Emerald Green', 'Moss Green', 'Black', 'White', 'Bald');
+                    }  else if(race == 'Tortle'){
+                        HairGeneral.push('Yellow Green', 'Pale Green', 'Moss Green', 'Olive Green', 'Dark Green', 'Light Brown', 'Green Brown', 'Dark Teal', 'Deep Turquoise');
+                    } else {
+                        HairGeneral.push('Platinum Blonde', 'Blonde', 'Dirty Blonde', 'Golden Brown', 'Caramel', 'Cocoa', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Chestnut', 'Black', 'Silver', 'White', 'Bubblegum Pink', 'Magenta', 'Neon Purple', 'Plum', 'Teal', 'Bright blue', 'Baby Blue', 'Cerulean', 'Lime Green', 'Moss Green', 'Orange', 'Kelly Green', 'Bald', 'Rainbow of colours');
+                    }
+                    
+
+                    var hair = HairGeneral[Math.floor(Math.random()*HairGeneral.length)];
+
+                    // Skin General
+
+                    const SkinGeneral = [];
+
+                    if(race == 'Dragonborn'){
+                        SkinGeneral.push('Black', 'Blue', 'Brass', 'Bronze', 'Copper', 'Gold', 'Green', 'Red', 'Silver');
+                    } else if(race == 'Lizardfolk'){
+                        HairGeneral.push('Light Green', 'Dark Green', 'Bright Green', 'Black', 'Light Grey', 'Dark Grey');
+                    } else if(race == 'Drow'){
+                        SkinGeneral.push('Obsidian', 'Dark Grey', 'Charcoal', 'Dark Blue');
+                    } else if(race == 'Half Drow' || race == 'Shadar-kai Elf' || race == 'Half Shadar-kai Elf' || race == 'Orc' || race == 'Ebberron Orc'){
+                        SkinGeneral.push('Dark Grey', 'Light Grey', 'Pewter', 'Cloud Grey');
+                    } else if(race == 'Pallid Elf' || race == 'Half Pallid Elf'){
+                        SkinGeneral.push('Alabaster', 'Pale Ivory', 'Ivory', 'Porcelain');
+                    } else if(race == 'Sea Elf' || race == 'Half Sea Elf'){
+                        SkinGeneral.push('Dark Green', 'Teal', 'Turquoise', 'Silver', 'Indigo', 'Cobalt Blue', 'Cerulean', 'Sapphire Blue', 'Baby Blue', 'Sky Blue', 'Aqua');
+                    } else if(race == 'Gnome'){
+                        SkinGeneral.push('Honey', 'Golden', 'Tan', 'Olive', 'Taupe', 'Golden', 'Ebony', 'Bronze', 'Copper', 'Dark Grey', 'Light Grey', 'Pewter', 'Cloud Grey');
+                    } else if(race == 'Half Orc'){
+                        SkinGeneral.push('Dark Grey', 'Light Grey', 'Pewter', 'Cloud Grey', 'Light Green', 'Dark Green', 'Bright Green');
+                    } else if(race == 'Tiefling'){
+                        SkinGeneral.push('Red', 'Maroon', 'Orange', 'Bronze', 'Yellow', 'Yellow Green', 'Obsidian', 'Dark Grey', 'Light Grey', 'Pewter', 'Cloud Grey');
+                    } else if(race == 'Satyr'){
+                        SkinGeneral.push('Honey', 'Golden', 'Tan', 'Olive', 'Taupe', 'Golden', 'Bronze', 'Copper');
+                    } else if(race == 'Fire Genasi'){
+                        SkinGeneral.push('Bright Red', 'Burnt Orange', 'Charcoal', 'Ash Grey');
+                    } else if(race == 'Water Genasi'){
+                        SkinGeneral.push('Light Blue', 'Pale Turquoise', 'Sky Blue', 'Baby Blue', 'Seafoam Green');
+                    } else if(race == 'Earth Genasi'){
+                        SkinGeneral.push('Deep Brown', 'Light Brown', 'Green Agate', 'Yellow Agate', 'Red Agate', 'Obsidian', 'Rusted Iron', 'Matte Silver', 'Matte Gold', 'Matte Copper', 'Polished Silver', 'Polished Gold', 'Polished Copper');
+                    } else if(race == 'Air Genasi'){
+                        SkinGeneral.push('Baby Blue', 'Cornflower Blue', 'Light Blue', 'Pale Turquoise', 'Sky Blue');
+                    } else if(race == 'Goliath'){
+                        SkinGeneral.push('Dark Grey', 'Light Grey', 'Pewter', 'Cloud Grey', 'Light Brown', 'Dark Brown');
+                    } else if(race == 'Aasimar'){
+                        SkinGeneral.push('Light Brown', 'Dark Brown', 'Emerald Green', 'Silver', 'Gold', 'Copper');
+                    } else if(race == 'Firbolg'){
+                        SkinGeneral.push('Dark Grey', 'Light Grey', 'Pewter', 'Cloud Grey', 'Light Pink');
+                    } else if(race == 'Goblin'){
+                        SkinGeneral.push('Dark Red', 'Umber', 'Bronze', 'Light Orange', 'Orange', 'Dark Orange', 'Burnt Orange', 'Rust', 'Dark Yellow', 'Yellow');
+                    } else if(race == 'Hobgoblin'){
+                        SkinGeneral.push('Dark Red', 'Umber', 'Bronze', 'Dark Orange', 'Burnt Orange', 'Rust');
+                    } else if(race == 'Kobold'){
+                        SkinGeneral.push('Dark Red', 'Umber', 'Bronze', 'Light Orange', 'Orange', 'Dark Orange', 'Burnt Orange', 'Rust', 'Light Brown', 'Dark Brown');
+                    } else if(race == 'Triton'){
+                        SkinGeneral.push('Baby Blue', 'Cornflower Blue', 'Light Blue', 'Pale Turquoise', 'Sky Blue', 'Silver Blue');
+                    } else if(race == 'Yuan-Ti Pureblood'){
+                        SkinGeneral.push('Pale Green');
+                    } else if(race == 'Tortle'){
+                        SkinGeneral.push('Yellow Green', 'Pale Green', 'Moss Green', 'Olive Green', 'Dark Green', 'Light Brown', 'Green Brown', 'Dark Teal', 'Deep Turquoise');
+                    } else if(race == 'Warforged'){
+                        SkinGeneral.push('Deep Brown', 'Light Brown', 'Matte Bronze', 'Polished Bronze', 'Rusted Iron', 'Matte Silver', 'Matte Gold', 'Matte Copper', 'Polished Silver', 'Polished Gold', 'Polished Copper');
+                    } else if(race == 'Gith'){
+                        SkinGeneral.push('Yellow Green', 'Pale Green', 'Moss Green', 'Olive Green', 'Dark Green', 'Light Brown', 'Green Brown');
+                    } else if(race == 'Vedalken'){
+                        SkinGeneral.push('Baby Blue', 'Cornflower Blue', 'Light Blue', 'Pale Turquoise', 'Sky Blue', 'Silver Blue', 'Dark Blue', 'Dark Blue Grey', 'Light Blue Grey', 'White Blue', 'Cloud Grey');
+                    } else if(race == 'Verdan'){
+                        SkinGeneral.push('Yellow Green', 'Pale Green', 'Moss Green', 'Olive Green', 'Dark Green', 'Green Brown');
+                    } else {
+                        SkinGeneral.push('Alabaster', 'Pale Ivory', 'Ivory', 'Porcelain', 'Beige', 'Warm Beige', 'Honey', 'Golden', 'Tan', 'Olive', 'Taupe', 'Golden', 'Ebony', 'Bronze', 'Copper');
+                    }
+
+                    var skin = SkinGeneral[Math.floor(Math.random()*SkinGeneral.length)];
+
+                    // Fur Color
+
+                    const FurGeneral = [];
+
+                    if(race == 'Leonin'){
+                        FurGeneral.push('Tawny', 'Golden', 'Tawny', 'Golden', 'Tawny', 'Golden', 'Black', 'Black', 'White', 'Dark Brown', 'Dark Brown');
+                    } else if(race == 'Satyr'){
+                        FurGeneral.push('Dirty Blonde', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Chestnut', 'Black', 'Golden Brown', 'Caramel', 'Cocoa');
+                    } else if(race == 'Aarakocra'){
+                        FurGeneral.push('Bright Red', 'Dark Red', 'Burnt Red', 'Bright Orange', 'Dark Orange', 'Light Orange', 'Bright Yellow', 'Light Yellow', 'Light Brown', 'Dark Brown', 'Dark Grey', 'Light Grey', 'Pewter', 'Cloud Grey');
+                    } else if(race == 'Bugbear'){
+                        FurGeneral.push('Pale Yellow', 'Yellow', 'Dark Yellow', 'Light Orange', 'Orange', 'Dark Orange', 'Tawny', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn');
+                    } else if(race == 'Kenku'){
+                        FurGeneral.push('Black', 'Dark Brown', 'Russet');
+                    } else if(race == 'Tabaxi'){
+                        FurGeneral.push('Burnt Red', 'Light Orange', 'Orange', 'Dark Orange', 'Burnt Orange', 'Rust', 'Dark Yellow', 'Yellow', 'Light Yellow');
+                    } else if(race == 'Minotaur'){
+                        FurGeneral.push('Tawny', 'Light Brown', 'Dark Brown', 'Tawny', 'Light Brown', 'Dark Brown', 'Tawny', 'Light Brown', 'Dark Brown', 'Black', 'Black', 'White');
+                    } else if(race == 'Owlfolk'){
+                        FurGeneral.push('Snowy', 'Barred', 'Tawny', 'Light Grey', 'Dark Red', 'Dark Grey');
+                    } else if(race == 'Rabbitfolk'){
+                        FurGeneral.push('Sandy', 'White', 'Black', 'Dark Grey', 'Light Grey', 'Steel Grey');
+                    }
+
+                    var fur = FurGeneral[Math.floor(Math.random()*FurGeneral.length)];
+
+                    // Horns
+
+                    const HornLength = ['Tiny', 'Short', 'Medium', 'Long', 'Very Long'];
+                    const HornTwist = ['Straight', 'Wavy', 'Twisted'];
+                    const HornColor = ['Black', 'Light Grey', 'White', 'Dark Grey', 'Light Brown'];
+
+                    var hLength = HornLength[Math.floor(Math.random()*HornLength.length)];
+                    var hTwist = HornTwist[Math.floor(Math.random()*HornTwist.length)];
+                    var hColor = HornColor[Math.floor(Math.random()*HornColor.length)];
+
+                    const horns = hLength + " " + hTwist + " " + hColor
+
+                    // Tattoo
+
+                    var RandTattoo = Math.floor((Math.random() * 4) + 1);
+
+                    if(RandTattoo == 1){
+                        if(race == 'Leonin' || race == 'Aarakocra' || race == 'Bugbear' || race == 'Kenku' || race == 'Tabaxi' || race == 'Owlfolk' || race == 'Rabbitfolk'){
+                            var tattoo = false;
+                            $('#TattooRow').hide();
+                        } else {
+                            var tattoo = true;
+                            $('#TattooRow').show();
+                        }
+                    } else {
+                        var tattoo = false;
+                        $('#TattooRow').hide();
+                    }
+
+                    const TattooSize = ['Small', 'Medium-sized', 'Large', 'Massive'];
+                    const TattooArray = [];
+                    const TattooLocation = ['back', 'forearm', 'bicep', 'calf', 'thigh', 'chest'];
+
+                    if(tattoo == true){
+                        if(race == 'Shadar-kai Elf' || race == 'Wood Elf' || race == 'High Elf' || race =='Pallid Elf' || race == 'Sea Elf' || race == 'Shadar-kai Elf'){
+                            var ShadowMark = Math.floor((Math.random() * 10) + 1);
+                            if(ShadowMark == 1){
+                                TattooArray.push('Mark of Shadow');
+                            } else {
+                                TattooArray.push('wildcat', 'band of barbed wire', 'flower', 'scorpion', 'sword', 'axe', 'dagger', 'wand', 'fireball');
+                            }
+                        } else {
+                            TattooArray.push('wildcat', 'band of barbed wire', 'flower', 'scorpion', 'sword', 'axe', 'dagger', 'wand', 'fireball');
+                        }
+                    }
+
+                    var tSize = TattooSize[Math.floor(Math.random()*TattooSize.length)];
+                    var tType = TattooArray[Math.floor(Math.random()*TattooArray.length)];
+                    var tLocation = TattooLocation[Math.floor(Math.random()*TattooLocation.length)];
+
+                    const TattooDesc = tSize + " " + tType + " on your " + tLocation;
+
+                    // Scars
+
+                    var RandScar = Math.floor((Math.random() * 10) + 1);
+
+                    const ScarSize = ['Small', 'Medium-sized', 'Large', 'Massive'];
+                    const ScarArray = [];
+                    const ScarLocation = ['back', 'forearm', 'bicep', 'calf', 'thigh', 'chest'];
+
+                    if(RandScar == 1){
+                        var scar = true;
+                        $('#ScarRow').show();
+                        ScarArray.push('keiloid', 'burn', 'intentional scarification', 'surgical', 'jagged')
+
+                    } else {
+                        var scar = false;
+                        $('#ScarRow').hide();
+                    }
+
+                    var sSize = ScarSize[Math.floor(Math.random()*ScarSize.length)];
+                    var sType = ScarArray[Math.floor(Math.random()*ScarArray.length)];
+                    var sLocation = ScarLocation[Math.floor(Math.random()*ScarLocation.length)];
+
+                    const ScarDesc = sSize + " " + sType + " scar on your " + sLocation;
+
+                    // Height Calc
+                    
+                    if(race == 'Aarokocra'){
+                        var HeightRangeMin = Math.max(MinHeight, AarokocraMin);
+                        var HeightRangeMax = Math.min(MaxHeight, AarokocraMax);
+                    }
+
+                    if(race == 'Aasimar'){
+                        var HeightRangeMin = Math.max(MinHeight, AasimarMin);
+                        var HeightRangeMax = Math.min(MaxHeight, AasimarMax);
+                    }
+
+                    if(race == 'Bugbear'){
+                        var HeightRangeMin = Math.max(MinHeight, BugbearMin);
+                        var HeightRangeMax = Math.min(MaxHeight, BugbearMax);
+                    }
+
+                    if(race == 'Dragonborn'){
+                        var HeightRangeMin = Math.max(MinHeight, DragonbornMin);
+                        var HeightRangeMax = Math.min(MaxHeight, DragonbornMax);
+                    }
+
+                    if(race == 'Dwarf'){
+                        var HeightRangeMin = Math.max(MinHeight, DwarfMin);
+                        var HeightRangeMax = Math.min(MaxHeight, DwarfMax);
+                    }
+
+                    if(race == 'Wood Elf' || race == 'High Elf' || race == 'Pallid Elf' || race == 'Sea Elf' || race == 'Shadar-kai Elf'){
+                        var HeightRangeMin = Math.max(MinHeight, ElfMin);
+                        var HeightRangeMax = Math.min(MaxHeight, ElfMax);
+                    }
+
+                    if(race == 'Eladrin'){
+                        var HeightRangeMin = Math.max(MinHeight, EladrinMin);
+                        var HeightRangeMax = Math.min(MaxHeight, EladrinMax);
+                    }
+
+                    if(race == 'Drow'){
+                        var HeightRangeMin = Math.max(MinHeight, DrowMin);
+                        var HeightRangeMax = Math.min(MaxHeight, DrowMax);
+                    }
+
+                    if(race == 'Firbolg'){
+                        var HeightRangeMin = Math.max(MinHeight, FirbolgMin);
+                        var HeightRangeMax = Math.min(MaxHeight, FirbolgMax);
+                    }
+
+                    if(race == 'Air Genasi' || race == 'Water Genasi' || race == 'Earth Genasi' || race == 'Fire Genasi'){
+                        var HeightRangeMin = Math.max(MinHeight, GenasiMin);
+                        var HeightRangeMax = Math.min(MaxHeight, GenasiMax);
+                    }
+
+                    if(race == 'Gith'){
+                        var HeightRangeMin = Math.max(MinHeight, GithMin);
+                        var HeightRangeMax = Math.min(MaxHeight, GithMax);
+                    }
+
+                    if(race == 'Gnome'){
+                        var HeightRangeMin = Math.max(MinHeight, GnomeMin);
+                        var HeightRangeMax = Math.min(MaxHeight, GnomeMax);
+                    }
+
+                    if(race == 'Goblin'){
+                        var HeightRangeMin = Math.max(MinHeight, GoblinMin);
+                        var HeightRangeMax = Math.min(MaxHeight, GoblinMax);
+                    }
+
+                    if(race == 'Goliath'){
+                        var HeightRangeMin = Math.max(MinHeight, GoliathMin);
+                        var HeightRangeMax = Math.min(MaxHeight, GoliathMax);
+                    }
+
+                    if(race == 'Half Wood Elf' || race == 'Half High Elf' || race == 'Half Pallid Elf' || race == 'Half Sea Elf' || race == 'Half Shadar-kai Elf'){
+                        var HeightRangeMin = Math.max(MinHeight, HalfElfMin);
+                        var HeightRangeMax = Math.min(MaxHeight, HalfElfMax);
+                    }
+
+                    if(race == 'HalfEladrin'){
+                        var HeightRangeMin = Math.max(MinHeight, HalfEladrinMin);
+                        var HeightRangeMax = Math.min(MaxHeight, HalfEladrinMax);
+                    }
+
+                    if(race == 'Half Drow'){
+                        var HeightRangeMin = Math.max(MinHeight, HalfDrowMin);
+                        var HeightRangeMax = Math.min(MaxHeight, HalfDrowMax);
+                    }
+
+                    if(race == 'Half Orc'){
+                        var HeightRangeMin = Math.max(MinHeight, HalfOrcMin);
+                        var HeightRangeMax = Math.min(MaxHeight, HalfOrcMax);
+                    }
+
+                    if(race == 'Halfling'){
+                        var HeightRangeMin = Math.max(MinHeight, HalflingMin);
+                        var HeightRangeMax = Math.min(MaxHeight, HalflingMax);
+                    }
+
+                    if(race == 'Hobgoblin'){
+                        var HeightRangeMin = Math.max(MinHeight, HobgoblinMin);
+                        var HeightRangeMax = Math.min(MaxHeight, HobgoblinMax);
+                    }
+
+                    if(race == 'Human'){
+                        var HeightRangeMin = Math.max(MinHeight, HumanMin);
+                        var HeightRangeMax = Math.min(MaxHeight, HumanMax);
+                    }
+
+                    if(race == 'Kalashtar'){
+                        var HeightRangeMin = Math.max(MinHeight, KalashtarMin);
+                        var HeightRangeMax = Math.min(MaxHeight, KalashtarMax);
+                    }
+
+                    if(race == 'Kenku'){
+                        var HeightRangeMin = Math.max(MinHeight, KenkuMin);
+                        var HeightRangeMax = Math.min(MaxHeight, KenkuMax);
+                    }
+                    
+                    if(race == 'Kobold'){
+                        var HeightRangeMin = Math.max(MinHeight, KoboldMin);
+                        var HeightRangeMax = Math.min(MaxHeight, KoboldMax);
+                    }
+
+                    if(race == 'Leonin'){
+                        var HeightRangeMin = Math.max(MinHeight, LeoninMin);
+                        var HeightRangeMax = Math.min(MaxHeight, LeoninMax);
+                    }
+
+                    if(race == 'Lizardfolk'){
+                        var HeightRangeMin = Math.max(MinHeight, LizardfolkMin);
+                        var HeightRangeMax = Math.min(MaxHeight, LizardfolkMax);
+                    }
+
+                    if(race == 'Orc' || race == 'Eberron Orc'){
+                        var HeightRangeMin = Math.max(MinHeight, OrcMin);
+                        var HeightRangeMax = Math.min(MaxHeight, OrcMax);
+                    }
+
+                    if(race == 'Owlfolk'){
+                        var HeightRangeMin = Math.max(MinHeight, OwlfolkMin);
+                        var HeightRangeMax = Math.min(MaxHeight, OwlfolkMax);
+                    }
+
+                    if(race == 'Rabbitfolk'){
+                        var HeightRangeMin = Math.max(MinHeight, RabbitfolkMin);
+                        var HeightRangeMax = Math.min(MaxHeight, RabbitfolkMax);
+                    }
+
+                    if(race == 'Satyr'){
+                        var HeightRangeMin = Math.max(MinHeight, SatyrMin);
+                        var HeightRangeMax = Math.min(MaxHeight, SatyrMax);
+                    }
+
+                    if(race == 'Simic Hybrid'){
+                        var HeightRangeMin = Math.max(MinHeight, SimicHybridMin);
+                        var HeightRangeMax = Math.min(MaxHeight, SimicHybridMax);
+                    }
+
+                    if(race == 'Tabaxi'){
+                        var HeightRangeMin = Math.max(MinHeight, TabaxiMin);
+                        var HeightRangeMax = Math.min(MaxHeight, TabaxiMax);
+                    }
+
+                    if(race == 'Tiefling'){
+                        var HeightRangeMin = Math.max(MinHeight, TieflingMin);
+                        var HeightRangeMax = Math.min(MaxHeight, TieflingMax);
+                    }
+
+                    if(race == 'Tortle'){
+                        var HeightRangeMin = Math.max(MinHeight, TortleMin);
+                        var HeightRangeMax = Math.min(MaxHeight, TortleMax);
+                    }
+                    
+                    if(race == 'Triton'){
+                        var HeightRangeMin = Math.max(MinHeight, TritonMin);
+                        var HeightRangeMax = Math.min(MaxHeight, TritonMax);
+                    }
+
+                    if(race == 'Vedalken'){
+                        var HeightRangeMin = Math.max(MinHeight, VedalkenMin);
+                        var HeightRangeMax = Math.min(MaxHeight, VedalkenMax);
+                    }
+
+                    if(race == 'Verdan'){
+                        var HeightRangeMin = Math.max(MinHeight, VerdanMin);
+                        var HeightRangeMax = Math.min(MaxHeight, VerdanMax);
+                    }
+
+                    if(race == 'Yuan-ti Pureblood'){
+                        var HeightRangeMin = Math.max(MinHeight, YuantiMin);
+                        var HeightRangeMax = Math.min(MaxHeight, YuantiMax);
+                    }
+
+                    var RandHeight = Math.floor((Math.random() * (HeightRangeMax - HeightRangeMin)) + HeightRangeMin);
+                    var RandHeightFeet = Math.floor(RandHeight / 12 );
+                    var RandHeightInches = RandHeight % 12;
+
+                    const height = RandHeightFeet + " &apos;" + RandHeightInches + "&quot;"
+
+                    $('#RaceOutput').html(race);
+                    $('#GenderOutput').html(gender);
+                    $('#AgeOutput').html(age);
+                    $('#HeightOutput').html(height);
+                    $('#HairOutput').html(hair);
+                    $('#SkinOutput').html(skin);
+                    $('#FurOutput').html(fur);
+                    $('#HornsOutput').html(horns);
+                    $('#ScarOutput').html(ScarDesc);
+                    $('#TattooOutput').html(TattooDesc);
+
+                    console.log(AllRaces.length);
+                };
+
+                function ClearArray(){
+                    AllRaces.length = 0;
+                }
+
+                function Reset(){
+                    ClearArray();
+                    document.getElementById('results').style.display = "none";
+                    document.getElementById('DisguiseSelfOptions').style.display = "block";
+                }
+
+                $("#SpecificExclusions").click(function(){
+                    $("#exclusionButtons").hide();
+                    $(".race-selection").show();
+                    ManualSelection = true;
+                });
+
+                $("#BroadExclusions").click(function(){
+                    $("#exclusionButtons").show();
+                    $(".race-selection").hide();
+                    ManualSelection = false
+                });
+
+                function NewLook(){
+                    ClearArray();
+                    DisguiseMe();
+                }
+
+                $( "#ResetOption" ).click(Reset);
+
+                $("#DisguiseMe").click(DisguiseMe);
+                $("#NewLook").click(NewLook);
+        });
+    </script>
+  </body>
+</html>
