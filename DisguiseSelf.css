@@ -1,0 +1,196 @@
+body {
+    margin: 20px;
+    background: url("https://cdn.shopify.com/s/files/1/1064/0402/files/parchment-background.jpg?v=1627949223") fixed;
+    background-size: 216px;
+    font-family: 'Uncial Antiqua', cursive;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #616161;
+    text-align: center;
+}
+#DisguiseSelfOptions, #results {
+    font-family: 'MedievalSharp', cursive;
+}
+.form-container {
+    padding-top: 10px;
+    margin:auto
+}
+.height-weight {
+    width: 50%;
+}
+.race-selection {
+    width: 75%;
+}
+.race-form {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #616161
+}
+.form-check-input, .form-check-label {
+    margin-top: 5px;
+}
+.disclaimer {
+    padding: 10px;
+    border: 1px solid black;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.5)
+}
+.inactive {
+    color: #7E7E7E;
+}
+#ExcludeDrow, #ExcludeHalfDrow {
+    margin-left: 10px;
+}
+#results {
+    display: none;
+    margin-top: 20px;
+    width: 50%;
+    margin: auto;
+    font-size: 1.5em;
+}
+.btn, .btn:hover, .btn:active, .btn:focus {
+    background-color: #E30713;
+    border-color: #E30713;
+}
+#DisguiseMe {
+    width: auto;
+    margin: auto;
+}
+.form-check-input:checked {
+    background-color: #E30713;
+}
+
+/* Table */
+
+.disguise-table {
+    margin: auto;
+}
+
+.disguise-table, .disguise-table tr, .disguise-table td {
+    border: 1px solid #7e7e7e
+}
+
+.disguise-table td {
+    padding: 7px;
+    color: #616161;
+}
+
+.disguise-table th {
+    padding: 7px;
+    color: black;
+}
+
+#FurRow, #TattooRow, #ScarRow {
+    display: none;
+}
+
+/* Exclusion buttons */
+
+#exclusionButtons {
+    margin-top: 50px;
+}
+#WingsRow {
+    display: none;
+}
+
+#SpecificRow{
+    margin-top: 20px;
+}
+
+/* Temporary */
+
+.race-selection {
+    display: none;
+}
+
+/* Range */
+input[type=range] {
+    width: 100%;
+    margin: 3px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    background: #e30713;
+    border: 0.2px solid #e30713;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+    margin-top: -3.2px;
+    width: 16px;
+    height: 36px;
+    background: #e7e7e7;
+    border: 1px solid #414141;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #f80c19;
+}
+input[type=range]::-moz-range-track {
+    background: #e30713;
+    border: 0.2px solid #e30713;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+}
+input[type=range]::-moz-range-thumb {
+    width: 16px;
+    height: 36px;
+    background: #e7e7e7;
+    border: 1px solid #414141;
+    border-radius: 3px;
+    cursor: pointer;
+}
+input[type=range]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 4px 0;
+    color: transparent;
+    width: 100%;
+    height: 30px;
+    cursor: pointer;
+}
+input[type=range]::-ms-fill-lower {
+    background: #ca0611;
+    border: 0.2px solid #e30713;
+    border-radius: 2.6px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #e30713;
+    border: 0.2px solid #e30713;
+    border-radius: 2.6px;
+}
+input[type=range]::-ms-thumb {
+    width: 16px;
+    height: 36px;
+    background: #e7e7e7;
+    border: 1px solid #414141;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 0px;
+/* Needed to keep the Edge thumb centred */
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #e30713;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #f80c19;
+}
+/* TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE */
+@supports (-ms-ime-align:auto) {
+    /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+    input[type=range] {
+        margin: 0;
+        /* Edge starts the margin from the thumb, not the track as other browsers do */
+    }
+}
