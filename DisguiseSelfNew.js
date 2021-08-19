@@ -1,3 +1,5 @@
+
+
 // The purpose of this file is to test and adjust JavaScript options with Objects. This file can be called by changing the filename on line 27 in DisguiseSelfinProgress.html
 
 // ########## Variable Space ##########
@@ -76,15 +78,6 @@
         var HeightWarning;
 
     // Heights
-
-    function CharHeight(){
-        FeetInches = document.getElementById("HeightFeet").value;
-        FeetInches = FeetInches * 12;
-        Inches = document.getElementById("HeightInches").value;
-        HeightInches = parseFloat(FeetInches) + parseFloat(Inches);
-        CharMinHeight = parseFloat(HeightInches) - 12;
-        CharMaxHeight = parseFloat(HeightInches) + 12;
-    }
 
         // Race Objects and Properties
 
@@ -879,21 +872,40 @@
             HairArray: ['Black', 'Dark Green', 'Dark Blue']
         }
 
-// Click Buttons, do things
-
-$("#DisguiseMe").click(CharHeight);
-
 // Build race array
 
     const RaceArray = ['Aarokocra', 'Aasimar', 'Bugbear', 'Dragonborn', 'Dwarf', 'HighElf', 'WoodElf', 'PallidElf', 'SeaElf', 'ShadarkaiElf', 'Eladrin', 'DrowElf', 'Firbolg', 'FireGenasi', 'WaterGenasi', 'AirGenasi', 'EarthGenasi', 'Gith', 'Gnome', 'Goblin', 'Goliath', 'HalfHighElf', 'HalfWoodElf HalfPallidElf', 'HalfSeaElf', 'HalfShadarkaiElf', 'HalfEladrin', 'HalfDrow', 'HalfOrc', 'Halfling', 'Hobgoblin', 'Human', 'Kalashtar', 'Kenku', 'Kobold', 'Leonin', 'Lizardfolk', 'Orc', 'EberronOrc', 'Owlfolk', 'Rabbitfolk', 'Satyr', 'SimicHybrid', 'Tabaxi', 'Tiefling', 'Tortle', 'Triton', 'Vedalken', 'Verdan', 'Yuanti']
 
-    for (let i = 0; i < RaceArray.length; i++){
-        var RaceMinHeight = RaceArray[i] + '.MinHeight';
-        var RaceMaxHeight = RaceArray[i] + '.MaxHeight';
-        var IncludeRace = RaceArray[i] + '.Include'
-        if(CharMaxHeight <= RaceMinHeight || CharMinHeight >= RaceMinHeight){
-            eval(IncludeRace) = false
-        } else {
-            eval(IncludeRace) = true
-        }
+    function Alert(){
+        alert('Clicked!');
     }
+
+// Click Buttons, do things
+$(document).ready(function(){
+    function CharHeight(){
+        FeetInches = document.getElementById("HeightFeet").value;
+        FeetInches = FeetInches * 12;
+        Inches = document.getElementById("HeightInches").value;
+        HeightInches = parseFloat(FeetInches) + parseFloat(Inches);
+        CharMinHeight = parseFloat(HeightInches) - 12;
+        CharMaxHeight = parseFloat(HeightInches) + 12;
+    }
+
+    function BuildArray(){
+        CharHeight();
+        for (let i = 0; i < RaceArray.length; i++){
+            var RaceMinHeight = RaceArray[i] + '.MinHeight';
+            var RaceMaxHeight = RaceArray[i] + '.MaxHeight';
+            //var RaceName = RaceArray[i] + '.Name';
+            //var RaceName = eval(RaceName);
+            //if(CharMaxHeight < eval(RaceMinHeight) || CharMinHeight > eval(RaceMaxHeight)){
+
+            //} else {
+            //    AllRaces.push = RaceArray[i];
+            //}
+        }
+        console.log(RaceMinHeight + " " + CharMaxHeight);
+    }
+
+    $("#DisguiseMe").click(BuildArray);
+});
