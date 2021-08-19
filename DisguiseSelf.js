@@ -436,7 +436,7 @@ function DisguiseMe(){
             var ExcludeMinotaur = true;
         } else {
             var ExcludeMinotaur = false;
-            AllRaces.push('Minotaur')
+            // AllRaces.push('Minotaur')
         }
     }
 
@@ -705,7 +705,7 @@ function DisguiseMe(){
             HairGeneral.push('White', 'Silver', 'Pale Yellow', 'Black');
         } else if(race == 'Wood Elf' || race == 'Half Wood Elf'){
             HairGeneral.push('Golden Brown', 'Caramel', 'Cocoa', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Chestnut', 'Black');
-        } else if(race == 'High Elf' || race == 'Half High Elf'){
+        } else if(race == 'High Elf' || race == 'Half High Elf' || race == 'Eladrin' || race == 'Half Eladrin'){
             HairGeneral.push('White', 'Silver', 'Golden Blonde');
         } else if(race == 'Pallid Elf' || race == 'Half Pallid Elf'){
             HairGeneral.push('White', 'Silver', 'Pale Yellow');
@@ -735,14 +735,12 @@ function DisguiseMe(){
             HairGeneral.push('Fire');
         } else if(race == 'Earth Genasi' || race == 'Vedalken'){
             HairGeneral.push('Bald');
-        } else if(race == 'Goliath'){
+        } else if(race == 'Goliath' || race == 'Goblin'){
             HairGeneral.push('Cocoa', 'Chestnut', 'Black');
         } else if(race == 'Aasimar'){
             HairGeneral.push('Platinum Blonde', 'Blonde', 'Dirty Blonde', 'Golden Brown', 'Caramel', 'Cocoa', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn', 'Chestnut', 'Black', 'Silver', 'White');
         } else if(race == 'Firbolg'){
             HairGeneral.push('Platinum Blonde', 'Blonde', 'Dirty Blonde', 'Strawberry Blonde', 'Scottish/Irish Red', 'Auburn');
-        } else if(race == 'Goblin'){
-            HairGeneral.push('Cocoa', 'Chestnut', 'Black');
         } else if(race == 'Hobgoblin'){
             HairGeneral.push('Cocoa', 'Chestnut', 'Black', 'Auburn', 'Grey');
         } else if(race == 'Lizardfolk'){
@@ -786,8 +784,6 @@ function DisguiseMe(){
             SkinGeneral.push('Dark Grey', 'Light Grey', 'Pewter', 'Cloud Grey', 'Light Green', 'Dark Green', 'Bright Green');
         } else if(race == 'Tiefling'){
             SkinGeneral.push('Red', 'Maroon', 'Orange', 'Bronze', 'Yellow', 'Yellow Green', 'Obsidian', 'Dark Grey', 'Light Grey', 'Pewter', 'Cloud Grey');
-        } else if(race == 'Satyr'){
-            SkinGeneral.push('Honey', 'Golden', 'Tan', 'Olive', 'Taupe', 'Golden', 'Bronze', 'Copper');
         } else if(race == 'Fire Genasi'){
             SkinGeneral.push('Bright Red', 'Burnt Orange', 'Charcoal', 'Ash Grey');
         } else if(race == 'Water Genasi'){
